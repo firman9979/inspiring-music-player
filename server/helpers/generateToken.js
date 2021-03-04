@@ -3,4 +3,6 @@ const token = (payload)=>{
     return jwt.sign(payload, process.env.SECRET)
 }
 
-module.exports = {token}
+const verifyToken = (access_token) => jwt.verify(access_token, process.env.SECRET)
+
+module.exports = {token, verifyToken}

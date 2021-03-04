@@ -4,9 +4,12 @@ const {token} = require('../helpers/generateToken')
 
 class UserController{
 
-    static register(req,res){
-        const {email, password} = req.body
-        User.create({email, password})
+    static register(req, res){
+        const data = {
+            email: req.body.email,
+            password: req.body.password
+        }
+        User.create(data)
         .then(user=>{
             res.status(201).json({
                 id: user.id,
@@ -14,11 +17,19 @@ class UserController{
             })
         })
         .catch(err=>{
-            res.status(400).json(err)
+            let errorsArr = []
+            err.errors.forEach(e => {
+                errorsArr.push(e.message)
+            })
+            if (errorsArr) {
+                res.status(400).json({message: errorsArr})
+            } else {
+                res.status(500).json({msg: "Invalid Server Error"})
+            }
         })
     }
 
-    static login(req,res){
+    static login(req, res,){
         const {email,password} = req.body
         User.findOne({where:{email}})
         .then(user=>{
@@ -30,12 +41,12 @@ class UserController{
                 })
                 res.status(200).json({access_token})
             }
-            else{
+            else {
                 throw({msg: "invalid email or password"})
             }
         })
         .catch(err=>{
-            res.status(500).json({msg : "invalid email or password"})
+            res.status(404).json({msg : "invalid email or password"})
         })
     }
 }
