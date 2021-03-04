@@ -18,12 +18,28 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     email: {
       type : DataTypes.STRING,
-      unique : true
+      unique : true,
+      validate: {
+        notEmpty: {
+          msg: "Email is required"
+        },
+        isEmail: {
+          args: true,
+          msg: "Invalid email format"
+        }
+      }
     },
-    password: DataTypes.STRING
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: "Password is required"
+        }
+      }
+    }
   }, {
     hooks:{
-      beforeCreate: (user,opt)=>{
+      beforeCreate: (user)=>{
         user.password = hashing(user.password)
       }
     },

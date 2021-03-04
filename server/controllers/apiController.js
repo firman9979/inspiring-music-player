@@ -1,17 +1,17 @@
 const axios = require("axios")
 
 class apiController {
-  static quotes (req, res) {
+  static quotes (req, res, next) {
       axios.get('https://api.adviceslip.com/advice')
       .then(result => {
         res.status(200).json(result.data.slip.advice)
       })
       .catch(err => {
-        res.status(400).json(err)
+        next({code: 500})
       })
   }
 
-  static pictures (req, res) {
+  static pictures (req, res, next) {
     const id = [
       1011, 1015, 1016, 1018, 1019, 
       1021, 1022, 1035, 1038, 1040, 
@@ -26,7 +26,7 @@ class apiController {
         res.status(200).json({result: result.data.download_url})
       })
       .catch(err => {
-        res.status(400).json(err)
+        next({code: 500})
       })
   }
 
