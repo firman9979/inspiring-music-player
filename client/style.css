@@ -1,0 +1,95 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://img.apmcdn.org/b8d93c263ccd9c6beb1171b41a333bebd87597d8/uncropped/66cde4-20160210-lake.jpg') no-repeat fixed center ;
+    background-size: cover;
+}
+
+#navbar {
+    background-color: #212121;
+}
+
+.navbar-brand {
+    color: #212121!important;
+}
+
+.bg-dark {
+    background-color: #FFFF!important;
+}
+
+#btn-logout {
+    color: #212121;
+    padding: 5px 10px;
+    background-color:#FFFF;
+    box-shadow: 1px 4px 9px -1px rgba(117,117,117,0.39);
+    border-radius: 4px;
+    transition: 0.5s;
+}
+
+#btn-logout:hover {
+    color: #FFFF;
+    background-color: #212121;
+    border-color: #DDDDDD;
+    box-shadow: 1px 1px 9px 2px rgba(117,117,117,0.39);
+    transition: 0.5s;
+}
+
+/* START LOGIN */
+#login-page-css {
+    height: 100vh;
+    min-height: 500px;
+}
+
+#btn-login {
+    color: #212121;
+    padding: 5px 10px;
+    border-color: #DDDDDD;
+    border-radius: 4px;
+    box-shadow: 1px 4px 9px -1px rgba(117,117,117,0.39);
+}
+
+#btn-login:hover {
+    box-shadow: 1px 1px 9px 2px rgba(117,117,117,0.39);
+}
+
+#btn-register {
+    color: #212121;
+    padding: 5px 10px;
+    border-color: #DDDDDD;
+    border-radius: 4px;
+    box-shadow: 1px 4px 9px -1px rgba(117,117,117,0.39);
+}
+
+#btn-register:hover {
+    box-shadow: 1px 1px 9px 2px rgba(117,117,117,0.39);
+}
+/* END LOGIN */
+
+
+/* START REGISTER */
+#register-page-css {
+    height: 100vh;
+    min-height: 500px;
+}
+
+#btn-submit-register {
+    color: #212121;
+    padding: 5px 10px;
+    border-color: #DDDDDD;
+    border-radius: 4px;
+    box-shadow: 1px 4px 9px -1px rgba(117,117,117,0.39);
+}
+
+#btn-submit-register:hover {
+    box-shadow: 1px 1px 9px 2px rgba(117,117,117,0.39);
+}
+
+/* END REGISTER */
+
+/* START MAIN PAGE */
+
+#main-page {
+    height: 100vh;
+    min-height: 800px;
+}
+
+/* END MAIN PAGE */

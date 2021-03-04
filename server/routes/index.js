@@ -5,8 +5,11 @@ const {authenticate} = require('../middlewares/auth')
 
 router.post("/register", UserController.register)
 router.post("/login", UserController.login)
-router.use(authenticate)
+
+router.use(authenticate);
+
 router.get('/quotes', apiController.quotes)
 router.get('/pictures', apiController.pictures)
+router.get('/news', apiController.getNews)
 
 module.exports = router
