@@ -202,7 +202,7 @@ function register () {
         swal({
             title: "Register success!",
             icon: "success",
-            button: "Okay",
+            button: "Login",
         });
         $("#register-page").hide();
         $("#login-page").show();
