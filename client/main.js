@@ -68,7 +68,11 @@ function login () {
         checkToken();
     })
     .fail(err => {
-        console.log(err);
+        swal({
+            title: `Email/Password are invalid.`,
+            icon: "warning",
+            button: "Login",
+        });
     })
     .always(() => {
         $('#login-email').val('');
@@ -210,7 +214,11 @@ function register () {
         $("#login-page").show();
     })
     .fail(err => {
-        console.log(err);
+        swal({
+            title: `Email/Password is required.`,
+            icon: "warning",
+            button: "Register",
+        });
     })
     .always(() => {
         $("#register-email").val("");

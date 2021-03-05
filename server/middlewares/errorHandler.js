@@ -11,7 +11,6 @@ const errorHandler = (err, req, res, next) => {
     } else if (err.code === 401) {
         res.status(err.code).json({message: err.message})
     } else if (err.code === 400) {
-        console.log(err.code);
         res.status(err.code).json({message: err.message})
     } else {
         res.status(500).json({message: 'Interval server error.'})
