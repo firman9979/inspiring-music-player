@@ -7,10 +7,13 @@ const authenticate = (req, res, next) => {
 
         User.findOne({where: {id, email}})
             .then(user => {
+                // Kondisi find user
                 req.currentUser = {id, email}
                 next()
             })
             .catch(err => {
+                // Err validasi / Err server/sequelize
+                // Params errnya dipakai
                 next({code: 404, message: 'User not found.'})
             })
     } catch (error) {
