@@ -11,6 +11,7 @@ $('document').ready(() => {
     $('#btn-logout').on('click', (e) => {
         e.preventDefault();
         logout();
+        googleLogout();
     })
 
     $('#btn-register').on('click', (e) => {
@@ -33,6 +34,7 @@ $('document').ready(() => {
 
 function checkToken () {
     if (localStorage.access_token) {
+        // generateAuthID();
         fetchNews();
         changeBackground();
         generateQuote();
@@ -214,4 +216,35 @@ function register () {
         $("#register-email").val("");
         $("#register-password").val("");
     })
+}
+
+// function generateAuthID() {
+//     $("#google-meta").attr('content', `${process.env.GOOGLE_CLIENT_ID}`)
+// }
+
+function onSignIn (googleUser) {
+    var id_token = googleUser.getAuthResponse().id_token;
+
+    $.ajax({
+        url: baseUrl+'/google-login',
+        method: 'POST',
+        data: {
+            token: id_token
+        }
+    })
+    .done(response => {
+        localStorage.setItem("access_token", response.access_token);
+        checkToken();
+    })
+    .fail(err => {
+        console.log(err);
+    })
+
+}
+
+function googleLogout() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
 }
