@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "rendra",
-    "password": "123456",
-    "database": "relaxing-news-portal",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "inspiring-music-player",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
