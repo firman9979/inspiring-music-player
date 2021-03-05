@@ -29,8 +29,9 @@ class UserController{
         })
     }
 
-    static login(req, res,){
+    static login(req, res){
         const {email,password} = req.body
+
         User.findOne({where:{email}})
         .then(user=>{
             const match = compare(password, user.password)

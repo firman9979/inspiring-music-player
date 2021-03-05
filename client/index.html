@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Relaxing News Portal</title>
+</head>
+<body style="
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://img.apmcdn.org/b8d93c263ccd9c6beb1171b41a333bebd87597d8/uncropped/66cde4-20160210-lake.jpg') no-repeat fixed center ;
+    background-size: cover;
+    " id="body-background">
+
+    <header id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand ms-4" href="#">Relaxing News</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto me-4">
+                        <a class="nav-link" href="#" id="btn-logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+          </nav>
+    </header>
+    
+
+    
+    <div class="container" id="login-page">
+        <div class="masthead d-flex align-items-center justify-content-center" id="login-page-css">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                    <h1 class="text-center mb-3">Login</h1>
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="login-email" placeholder="name@example.com">
+                            <label for="login-email">Email</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="login-password" placeholder="Password">
+                            <label for="login-password">Password</label>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <a class="btn mt-3 col-md-7" type="button" href="#" id="btn-login">Login</a>
+                            <a class="btn mt-3 col-md-7" type="button" href="#" id="btn-register">Register</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <div class="container" id="register-page">
+        <div class="masthead d-flex align-items-center justify-content-center" id="register-page-css">
+            <div class="card col-md-6 shadow p-5 mb-5 bg-body rounded">
+                <div class="col d-flex justify-content-end">
+                    <a type="button" class="btn-close me-2" aria-label="Close" id="btn-close-register"></a>
+                </div>
+                <h1 class="text-center mb-5">Register</h1>
+                <form class="row g-3">
+                    <div class="col-12">
+                      <label for="register-email" class="form-label">Email*</label>
+                      <input type="email" class="form-control" id="register-email" placeholder="xxx@gmail.com">
+                    </div>
+                    <div class="col-12">
+                      <label for="register-password" class="form-label">Password*</label>
+                      <input type="password" class="form-control" id="register-password" placeholder="6 - 16 characters">
+                    </div>
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <a class="btn me-2" type="button" href="#" id="btn-submit-register">Register</a>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <div id="main-page">
+        <div class="d-flex align-items-center justify-content-center mt-2" style="height: 200px;">
+            <p class="mb-5 text-center" style="font-size: 18px; color: white;" id="quote">Quote</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <!-- Spotify -->
+            <div class="mb-5 me-5">
+                <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUKPeBypcpcP" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+            <!-- End Spotify -->
+            <div class="card col-sm-7 shadow p-3 mb-5 bg-body rounded overflow-auto" style="height: 575px;">
+                <h1 class="text-center mb-4 mt-2">Today News!</h1>
+                <div class="card-body" id="news-list">
+                    <!-- News card -->
+                    <div class="card col-sm-12 shadow mb-2 bg-body rounded">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col d-flex align-items-center d-flex justify-content-center mx-3">
+                                    <img src="https://i.ytimg.com/vi/OEoEgdymnv0/maxresdefault.jpg" alt="" style="width: 650px;">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col d-flex justify-content-center">
+                                    <h3 id="news-title" class="mt-4">Title</h3>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col d-flex align-items-center d-flex justify-content-center mx-3">
+                                    <p class="" id="news-content" style="font-size: 14px; ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci vitae incidunt facere mollitia totam, pariatur, eos laudantium velit quo ipsum voluptas aliquam. Quaerat ducimus impedit voluptatem nam facere repellendus consequatur?</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col d-flex align-items-center d-flex justify-content-center mx-3">
+                                    <a href="">More...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End news Card -->
+                    
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

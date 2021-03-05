@@ -4,6 +4,7 @@ const {User} = require('../models')
 const authenticate = (req, res, next) => {
     try {
         let {id, email} = verifyToken(req.headers.access_token)
+
         User.findOne({where: {id, email}})
             .then(user => {
                 req.currentUser = {id, email}

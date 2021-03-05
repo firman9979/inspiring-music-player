@@ -30,6 +30,28 @@ class apiController {
       })
   }
 
+  static getNews (req, res, next) {
+    axios.get(`http://newsapi.org/v2/top-headlines?country=id&apiKey=${process.env.NEWS_APIKEY}`)
+    .then(result => {
+      let articles = [];
+      result.data.articles.forEach(article => {
+        articles.push({
+          title: article.title,
+          content: article.content,
+          published: new Date(article.publishedAt).toLocaleString('sv-SE', {dataStyle: 'short'}),
+          url: article.url,
+          image_url: article.urlToImage
+        });
+      })
+
+      res.status(200).json(articles)
+    })
+    .catch(err => {
+      next({code: 500});
+    })
+
+  }
+
 }
 
 module.exports = apiController
