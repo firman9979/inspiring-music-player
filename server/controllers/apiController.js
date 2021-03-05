@@ -7,7 +7,7 @@ class apiController {
         res.status(200).json(result.data.slip.advice)
       })
       .catch(err => {
-        next({code: 500})
+        next({code: 500, message: 'Internal server error.'})
       })
   }
 
@@ -26,7 +26,7 @@ class apiController {
         res.status(200).json({result: result.data.download_url})
       })
       .catch(err => {
-        next({code: 500})
+        next({code: 500, message: 'Internal server error.'})
       })
   }
 
@@ -47,7 +47,7 @@ class apiController {
       res.status(200).json(articles)
     })
     .catch(err => {
-      next({code: 500});
+      next({code: 500, message: 'Internal server error.'})
     })
 
   }

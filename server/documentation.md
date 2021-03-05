@@ -1,6 +1,6 @@
 # Relaxing News Portal Server
 Our Relaxing News Portal App is an application to display quotes, today's news, a spotify playlist, and a peaceful picture, in order to induce a relaxed vibe while reading news. This app has : 
-* RESTful endpoints for assets' CRUD operation
+* RESTful endpoints for authentication and getting APIs
 * JSON formatted response
 * List of Errors and its Responses
 

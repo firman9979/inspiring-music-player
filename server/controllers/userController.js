@@ -5,7 +5,7 @@ const {OAuth2Client} = require('google-auth-library');
 
 class UserController{
 
-    static register(req, res){
+    static register(req, res, next){
         const data = {
             email: req.body.email,
             password: req.body.password
@@ -18,19 +18,11 @@ class UserController{
             })
         })
         .catch(err=>{
-            let errorsArr = []
-            err.errors.forEach(e => {
-                errorsArr.push(e.message)
-            })
-            if (errorsArr) {
-                res.status(400).json({message: errorsArr})
-            } else {
-                res.status(500).json({msg: "Invalid Server Error"})
-            }
+            next(err)
         })
     }
 
-    static login(req, res){
+    static login(req, res, next){
         const {email,password} = req.body
 
         User.findOne({where:{email}})
@@ -44,11 +36,11 @@ class UserController{
                 res.status(200).json({access_token})
             }
             else {
-                throw({msg: "invalid email or password"})
+                next({code: 400, message: 'Email/password invalid.'})
             }
         })
         .catch(err=>{
-            res.status(404).json({msg : "invalid email or password"})
+            next({code: 400, message: 'Email/password invalid.'})
         })
     }
 
@@ -83,7 +75,7 @@ class UserController{
 
             })
             .catch(err => {
-                next({code: 500, msg: 'Interval server error.'})
+                next(err)
             })
         }
 

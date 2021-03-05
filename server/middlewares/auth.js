@@ -11,10 +11,10 @@ const authenticate = (req, res, next) => {
                 next()
             })
             .catch(err => {
-                throw new Error()
+                next({code: 404, message: 'User not found.'})
             })
     } catch (error) {
-        res.status(401).json({message:"Unauthorized"})
+        next({code: 401, message: 'Unauthorized content.'})
     }
 }
 
