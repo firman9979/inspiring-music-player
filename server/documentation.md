@@ -10,12 +10,14 @@ Our Relaxing News Portal App is an application to display quotes, today's news, 
 ```
 POST /register
 POST /login
+POST /google-login
 GET /getNews
 GET /quotes
 GET /pictures
 ```
 
-### POST /register
+---
+## 1. POST /register
 
 > Registering a new User
 
@@ -49,7 +51,7 @@ _Errors_
 ```
 
 ---
-### POST /login
+## 2. POST /login
 
 > Log into an existing user's account
 
@@ -82,7 +84,38 @@ _Errors_
 ```
 
 ---
-### GET /news
+## 3. POST /google-login
+
+> Log in user use Google OAuth for an existing user's account, and create account for nonexistent user account.
+
+_Request Header_
+```
+not needed
+```
+
+_Request Body_
+```
+{
+  "token": "<token_id from Google>",
+}
+```
+
+_Response (200)_
+```
+{
+  "access_token": "<access_token>"
+}
+```
+
+_Errors_
+```
+{
+  500 - Internal Server Error
+}
+```
+
+---
+## 4. GET /news
 
 > Get all news
 
@@ -141,7 +174,7 @@ _Errors_
 ```
 
 ---
-### GET /pictures
+## 5. GET /pictures
 
 > Get a picture
 
@@ -172,7 +205,7 @@ _Errors_
 ```
 
 ---
-### GET /quotes
+## 6. GET /quotes
 
 > Get a quote
 
@@ -201,7 +234,9 @@ _Errors_
 ```
 
 &nbsp;
-## Errors
+
+---
+## 7. Errors
 
 _Response (400 - Validation Error(s))_
 ```
